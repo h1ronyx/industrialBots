@@ -1,0 +1,1248 @@
+index.html
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Образовательный портал о робототехнике</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Q50,80 0,100 L0,0 Z" fill="rgba(255,255,255,0.1)"/></svg>') bottom center no-repeat;
+            background-size: 100% 30px;
+            opacity: 0.3;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .robot-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+            display: inline-block;
+        }
+
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        .intro-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .intro-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img {
+            height: 180px;
+            background-color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img i {
+            font-size: 4rem;
+            color: var(--secondary);
+            z-index: 1;
+        }
+
+        .card-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(52, 152, 219, 0.2), rgba(155, 89, 182, 0.2));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img::after {
+            transform: scaleX(1);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .card p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .timeline-section {
+            margin: 3rem 0;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--secondary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+            z-index: 1;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            border: 4px solid var(--secondary);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .right::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 6px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-year {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .robot-types {
+            margin: 3rem 0;
+        }
+
+        .type-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .type-tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .type-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--secondary);
+        }
+
+        .type-tab:hover:not(.active) {
+            background-color: rgba(52, 152, 219, 0.1);
+        }
+
+        .type-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: none;
+        }
+
+        .type-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .type-content h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .type-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .type-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 3rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-question {
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+
+        .quiz-question.active {
+            display: block;
+        }
+
+        .quiz-options {
+            margin-top: 1rem;
+        }
+
+        .quiz-option {
+            display: block;
+            margin-bottom: 0.5rem;
+            padding: 0.8rem 1rem;
+            background-color: var(--light);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .quiz-option:hover {
+            background-color: #dfe6e9;
+        }
+
+        .quiz-option.correct {
+            background-color: #d1f6e2;
+            color: #27ae60;
+        }
+
+        .quiz-option.incorrect {
+            background-color: #fdd9d9;
+            color: #e74c3c;
+        }
+
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+
+        .quiz-progress {
+            height: 5px;
+            background-color: #eee;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .quiz-progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .quiz-result {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .quiz-result h3 {
+            margin-bottom: 1rem;
+        }
+
+        .quiz-score {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin: 1rem 0;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 0 20px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #bbb;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .robot-model {
+            width: 100%;
+            height: 300px;
+            background-color: #f5f5f5;
+            margin: 2rem 0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .robot-arm {
+            position: absolute;
+            width: 60px;
+            height: 120px;
+            background-color: #9b59b6;
+            border-radius: 30px;
+            top: 80px;
+            left: 50%;
+            transform-origin: top center;
+            transform: translateX(-50%) rotate(0deg);
+            animation: wave 4s infinite ease-in-out;
+        }
+
+        .robot-head {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: #3498db;
+            border-radius: 50%;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .robot-body {
+            position: absolute;
+            width: 100px;
+            height: 120px;
+            background-color: #2ecc71;
+            border-radius: 20px;
+            top: 120px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .robot-eye {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #333;
+            border-radius: 50%;
+            top: 20px;
+        }
+
+        .eye-left {
+            left: 20px;
+        }
+
+        .eye-right {
+            right: 20px;
+        }
+
+        .robot-mouth {
+            position: absolute;
+            width: 30px;
+            height: 5px;
+            background-color: #333;
+            border-radius: 5px;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes wave {
+            0%, 100% {
+                transform: translateX(-50%) rotate(-20deg);
+            }
+            50% {
+                transform: translateX(-50%) rotate(20deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+            }
+
+            .nav-links li {
+                margin-left: 1rem;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+                right: auto;
+            }
+
+            .left::after, .right::after {
+                left: 21px;
+            }
+
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="robot-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            <h1>Образовательный портал о робототехнике</h1>
+            <p class="tagline">Изучайте мир роботов: от истории до современных технологий</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-robot"></i>
+                <span>RoboEdu</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#history">История</a></li>
+                <li><a href="#types">Типы роботов</a></li>
+                <li><a href="#applications">Применение</a></li>
+                <li><a href="#future">Будущее</a></li>
+                <li><a href="#quiz">Тест</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <section class="intro-section">
+            <h2>Что такое робот?</h2>
+            <p>Робот — это автоматическое устройство, предназначенное для выполнения различных действий, обычно по заранее заданной программе. Современные роботы обладают искусственным интеллектом, сенсорами и возможностью взаимодействовать с окружающей средой.</p>
+            
+            <div class="robot-model">
+                <div class="robot-head">
+                    <div class="robot-eye eye-left"></div>
+                    <div class="robot-eye eye-right"></div>
+                    <div class="robot-mouth"></div>
+                </div>
+                <div class="robot-body"></div>
+                <div class="robot-arm"></div>
+            </div>
+            
+            <p>Робототехника объединяет в себе знания из механики, электроники, информатики, радиотехники и других наук. Современные роботы могут выполнять сложные задачи: от хирургических операций до исследования других планет.</p>
+        </section>
+
+        <section class="card-container">
+            <div class="card">
+                <div class="card-img">
+                    <i class="fas fa-industry"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Промышленные роботы</h3>
+                    <p>Используются на производстве для автоматизации рутинных и опасных задач. Первый промышленный робот Unimate появился в 1961 году.</p>
+                    <a href="#types" class="btn">Узнать больше</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Медицинские роботы</h3>
+                    <p>Используются в хирургии (например, Da Vinci), реабилитации, диагностике и уходе за пациентами с высокой точностью.</p>
+                    <a href="#types" class="btn">Узнать больше</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">
+                    <i class="fas fa-space-shuttle"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Космические роботы</h3>
+                    <p>Марсоходы, луноходы и орбитальные аппараты исследуют космос там, куда человеку пока трудно добраться.</p>
+                    <a href="#types" class="btn">Узнать больше</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="history" class="timeline-section">
+            <h2>История робототехники</h2>
+            <p>Эволюция робототехники прослеживается на протяжении веков, от первых механических устройств до современных роботов с искусственным интеллектом.</p>
+
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1495</div>
+                        <div class="timeline-title">Механический рыцарь Леонардо да Винчи</div>
+                        <p>Один из первых известных проектов человекоподобного робота, способного двигать руками и головой.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1921</div>
+                        <div class="timeline-title">Термин "робот"</div>
+                        <p>Чешский писатель Карел Чапек впервые использовал слово "робот" в своей пьесе "R.U.R." (Россумские Универсальные Роботы).</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1961</div>
+                        <div class="timeline-title">Первый промышленный робот</div>
+                        <p>Unimate начинает работать на General Motors, выполняя задачи горячей штамповки и сварки.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1997</div>
+                        <div class="timeline-title">Первый робот на Марсе</div>
+                        <p>Mars Pathfinder и его ровер Sojourner приземляются на Красной планете, открывая новую эру исследования космоса.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2000</div>
+                        <div class="timeline-title">Робот ASIMO от Honda</div>
+                        <p>Один из самых продвинутых человекоподобных робогов, способный ходить, бегать и подниматься по лестнице.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023-2025</div>
+                        <div class="timeline-title">Роботы с искусственным интеллектом</div>
+                        <p>Современные роботы обучаются на основе нейросетей, приобретают способность к более сложным взаимодействиям с людьми.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="types" class="robot-types">
+            <h2>Основные типы роботов</h2>
+            <p>Современные роботы различаются по своей конструкции, назначению и степени автономности. Вот основные категории:</p>
+
+            <div class="type-tabs">
+                <div class="type-tab active" data-tab="industrial">Промышленные</div>
+                <div class="type-tab" data-tab="service">Сервисные</div>
+                <div class="type-tab" data-tab="medical">Медицинские</div>
+                <div class="type-tab" data-tab="military">Военные</div>
+                <div class="type-tab" data-tab="research">Исследовательские</div>
+            </div>
+
+            <div class="type-content active" data-content="industrial">
+                <h3>Промышленные роботы</h3>
+                <p>Автоматизированные системы, используемые в производственных процессах для выполнения повторяющихся задач с высокой точностью.</p>
+                <ul>
+                    <li><strong>Манипуляторы:</strong> Используются для перемещения деталей, сварки, окраски</li>
+                    <li><strong>Сборочные роботы:</strong> Собирают сложные изделия (электронику, автомобили)</li>
+                    <li><strong>Роботы-упаковщики:</strong> Готовят продукцию к отправке</li>
+                    <li><strong>Роботы для вредных производств:</strong> Работают в опасных условиях</li>
+                </ul>
+                <p>В современных заводах роботы могут составлять до 90% рабочего персонала на некоторых линиях.</p>
+            </div>
+
+            <div class="type-content" data-content="service">
+                <h3>Сервисные роботы</h3>
+                <p>Предназначены для обслуживания людей в различных сферах жизни.</p>
+                <ul>
+                    <li><strong>Домашние роботы:</strong> Пылесосы (Roomba), газонокосилки, помощники (Jibo)</li>
+                    <li><strong>Роботы-гиды и консультанты:</strong> В музеях, аэропортах, торговых центрах</li>
+                    <li><strong>Ресторанные роботы:</strong> Повара, официанты (например, Flippy — робот для жарки котлет)</li>
+                    <li><strong>Гостиничные роботы:</strong> Переноска багажа, уборка номеров (Henn-na Hotel в Японии)</li>
+                </ul>
+            </div>
+
+            <div class="type-content" data-content="medical">
+                <h3>Медицинские роботы</h3>
+                <p>Используются для диагностики, лечения, реабилитации пациентов и выполнения хирургических операций.</p>
+                <ul>
+                    <li><strong>Хирургические роботы:</strong> Da Vinci (точность до 0,1 мм), CyberKnife (радиохирургия)</li>
+                    <li><strong>Реабилитационные роботы:</strong> Экзоскелеты (Ekso Bionics), протезы с нейроуправлением</li>
+                    <li><strong>Лабораторные роботы:</strong> Автоматизация анализов, тестирование лекарств</li>
+                    <li><strong>Роботы для ухода:</strong> Помощь пожилым и людям с ограниченными возможностями</li>
+                </ul>
+            </div>
+
+            <div class="type-content" data-content="military">
+                <h3>Военные и спасательные роботы</h3>
+                <p>Используются для минимизации риска для жизни человека в опасных ситуациях.</p>
+                <ul>
+                    <li><strong>БПЛА (беспилотники):</strong> Разведка и целеуказание (MQ-9 Reaper)</li>
+                    <li><strong>Разминирующие роботы:</strong> Обнаружение и обезвреживание мин (TALON)</li>
+                    <li><strong>Роботы-спасатели:</strong> Поиск людей под завалами после землетрясений</li>
+                    <li><strong>Подводные роботы:</strong> Исследование затонувших объектов, разминирование</li>
+                </ul>
+                <p>Военные роботы поднимают важные этические вопросы об автономном принятии решений.</p>
+            </div>
+
+            <div class="type-content" data-content="research">
+                <h3>Исследовательские и космические роботы</h3>
+                <p>Расширяют границы человеческого познания в недоступных средах.</p>
+                <ul>
+                    <li><strong>Марсоходы:</strong> Curiosity, Perseverance (поиск следов жизни, изучение почвы)</li>
+                    <li><strong>Подводные аппараты:</strong> Исследование океанских глубин (Nereus, Deepsea Challenger)</li>
+                    <li><strong>Радиоактивные среды:</strong> Роботы для работы в местах с высокой радиацией</li>
+                    <li><strong>Роботы-ученые:</strong> Самостоятельно проводят эксперименты и анализируют данные</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="quiz" class="quiz-section">
+            <h2>Проверь свои знания о роботах</h2>
+            <p>Пройдите небольшой тест, чтобы закрепить полученные знания о робототехнике.</p>
+
+            <div class="quiz-progress">
+                <div class="quiz-progress-bar" id="quiz-progress"></div>
+            </div>
+
+            <div class="quiz-question active" data-question="1">
+                <p><strong>1.</strong> В каком году был представлен первый промышленный робот Unimate?</p>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">1945</div>
+                    <div class="quiz-option" data-correct="true">1961</div>
+                    <div class="quiz-option" data-correct="false">1975</div>
+                    <div class="quiz-option" data-correct="false">1982</div>
+                </div>
+            </div>
+
+            <div class="quiz-question" data-question="2">
+                <p><strong>2.</strong> Какой тип роботов используется хирургами для выполнения сложных операций?</p>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="true">Da Vinci</div>
+                    <div class="quiz-option" data-correct="false">Roomba</div>
+                    <div class="quiz-option" data-correct="false">ASIMO</div>
+                    <div class="quiz-option" data-correct="false">TALON</div>
+                </div>
+            </div>
+
+            <div class="quiz-question" data-question="3">
+                <p><strong>3.</strong> Какой писатель первым придумал термин "робот"?</p>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">Айзек Азимов</div>
+                    <div class="quiz-option" data-correct="false">Жюль Верн</div>
+                    <div class="quiz-option" data-correct="true">Карел Чапек</div>
+                    <div class="quiz-option" data-correct="false">Филип К. Дик</div>
+                </div>
+            </div>
+
+            <div class="quiz-question" data-question="4">
+                <p><strong>4.</strong> Какой робот НЕ относится к космическим исследованиям?</p>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">Curiosity</div>
+                    <div class="quiz-option" data-correct="false">Perseverance</div>
+                    <div class="quiz-option" data-correct="false">Sojourner</div>
+                    <div class="quiz-option" data-correct="true">ASIMO</div>
+                </div>
+            </div>
+
+            <div class="quiz-question" data-question="5">
+                <p><strong>5.</strong> Как называется серия романов Айзека Азимова, в которой он сформулировал Три закона робототехники?</p>
+                <div class="quiz-options">
+                    <div class="quiz-option" data-correct="false">"Основание"</div>
+                    <div class="quiz-option" data-correct="true">"Я, робот"</div>
+                    <div class="quiz-option" data-correct="false">"Стальные пещеры"</div>
+                    <div class="quiz-option" data-correct="false">"Конец вечности"</div>
+                </div>
+            </div>
+
+            <div class="quiz-navigation">
+                <button id="prev-question" class="btn" disabled>Назад</button>
+                <button id="next-question" class="btn">Далее</button>
+            </div>
+
+            <div class="quiz-result">
+                <h3>Результаты теста</h3>
+                <p>Вы ответили правильно на <span id="correct-answers">0</span> из <span id="total-questions">5</span> вопросов</p>
+                <div class="quiz-score">0%</div>
+                <p id="result-message"></p>
+                <button id="restart-quiz" class="btn">Пройти тест снова</button>
+            </div>
+        </section>
+
+        <section id="future" class="intro-section">
+            <h2>Будущее робототехники</h2>
+            <p>Развитие робототехники идет ускоренными темпами, и ближайшие десятилетия обещают революционные изменения:</p>
+            <ul>
+                <li><strong>ИИ и машинное обучение:</strong> Роботы станут более автономными, способными адаптироваться к незнакомым ситуациям</li>
+                <li><strong>Квантовые роботы:</strong> Использование квантовых вычислений для решения сверхсложных задач</li>
+                <li><strong>Сквозные технологии:</strong> Интеграция нанороботов в организм человека для диагностики и лечения</li>
+                <li><strong>Бионические роботы:</strong> Сочетание искусственных компонентов с живыми тканями</li>
+                <li><strong>Умные города:</strong> Роботизированные системы для транспорта, логистики и обслуживания инфраструктуры</li>
+            </ul>
+            <p>Эксперты предсказывают, что к 2045 году роботы достигнут уровня человеческого интеллекта (гипотеза технологической сингулярности).</p>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>RoboEdu</h3>
+                <p>Образовательный портал о робототехнике и искусственном интеллекте. Наша цель — доступно рассказывать о современных технологиях.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>Разделы</h3>
+                <ul class="footer-links">
+                    <li><a href="#history">История робототехники</a></li>
+                    <li><a href="#types">Типы роботов</a></li>
+                    <li><a href="#applications">Применение роботов</a></li>
+                    <li><a href="#future">Будущее технологий</a></li>
+                    <li><a href="#quiz">Проверь знания</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h3>Ресурсы</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Книги по робототехнике</a></li>
+                    <li><a href="#">Онлайн-курсы</a></li>
+                    <li><a href="#">Новости индустрии</a></li>
+                    <li><a href="#">Программы для моделирования</a></li>
+                    <li><a href="#">Лекции TED</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>&copy; 2023 RoboEdu. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Анимация временной шкалы при прокрутке
+        const timelineItems = document.querySelectorAll('.timeline-item');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.3 });
+
+        timelineItems.forEach(item => {
+            observer.observe(item);
+        });
+
+        // Логика вкладок с типами роботов
+        const tabs = document.querySelectorAll('.type-tab');
+        const contents = document.querySelectorAll('.type-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Удаляем активные классы у всех вкладок и контента
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+                
+                // Добавляем активный класс к текущей вкладке
+                tab.classList.add('active');
+                
+                // Находим соответствующий контент и делаем его активным
+                const tabType = tab.getAttribute('data-tab');
+                const activeContent = document.querySelector(`.type-content[data-content="${tabType}"]`);
+                activeContent.classList.add('active');
+            });
+        });
+
+        // Логика теста
+        let currentQuestion = 1;
+        const totalQuestions = document.querySelectorAll('.quiz-question').length;
+        let score = 0;
+        const progressBar = document.getElementById('quiz-progress');
+        
+        document.getElementById('total-questions').textContent = totalQuestions;
+
+        // Показать текущий вопрос и скрыть остальные
+        function showQuestion(questionNum) {
+            document.querySelectorAll('.quiz-question').forEach(q => {
+                q.classList.remove('active');
+            });
+            document.querySelector(`.quiz-question[data-question="${questionNum}"]`).classList.add('active');
+            
+            // Обновить прогресс
+            progressBar.style.width = `${(questionNum - 1) / totalQuestions * 100}%`;
+            
+            // Управление кнопками навигации
+            document.getElementById('prev-question').disabled = questionNum === 1;
+            document.getElementById('next-question').textContent = questionNum === totalQuestions ? 'Завершить' : 'Далее';
+        }
+
+        // Начальное состояние
+        showQuestion(currentQuestion);
+
+        // Обработчики навигации
+        document.getElementById('next-question').addEventListener('click', () => {
+            if (currentQuestion < totalQuestions) {
+                currentQuestion++;
+                showQuestion(currentQuestion);
+            } else {
+                // Завершение теста
+                finishQuiz();
+            }
+        });
+
+        document.getElementById('prev-question').addEventListener('click', () => {
+            if (currentQuestion > 1) {
+                currentQuestion--;
+                showQuestion(currentQuestion);
+            }
+        });
+
+        // Подсветка правильных/неправильных ответов
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Сбрасываем все выделения в текущем вопросе
+                this.parentNode.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('correct', 'incorrect');
+                });
+                
+                // Подсвечиваем выбранный ответ
+                if (this.getAttribute('data-correct') === 'true') {
+                    this.classList.add('correct');
+                } else {
+                    this.classList.add('incorrect');
+                    // Находим правильный ответ и подсвечиваем его
+                    const correctOption = this.parentNode.querySelector(`.quiz-option[data-correct="true"]`);
+                    if (correctOption) {
+                        correctOption.classList.add('correct');
+                    }
+                }
+                
+                // Запоминаем результат, если ответил правильно
+                if (this.getAttribute('data-correct') === 'true' && !this.parentNode.getAttribute('data-answered')) {
+                    score++;
+                    this.parentNode.setAttribute('data-answered', 'true');
+                }
+            });
+        });
+
+        // Завершение теста
+        function finishQuiz() {
+            document.querySelector('.quiz-navigation').style.display = 'none';
+            document.querySelector('.quiz-result').style.display = 'block';
+            
+            document.getElementById('correct-answers').textContent = score;
+            const percentage = Math.round(score / totalQuestions * 100);
+            document.querySelector('.quiz-score').textContent = `${percentage}%`;
+            
+            let message;
+            if (percentage === 100) {
+                message = "Превосходно! Вы настоящий эксперт в робототехнике!";
+            } else if (percentage >= 70) {
+                message = "Хороший результат! Вы хорошо разбираетесь в теме.";
+            } else if (percentage >= 40) {
+                message = "Неплохо, но есть куда стремиться.";
+            } else {
+                message = "Похоже, вам стоит побольше узнать о роботах.";
+            }
+            
+            document.getElementById('result-message').textContent = message;
+        }
+
+        // Перезапуск теста
+        document.getElementById('restart-quiz').addEventListener('click', () => {
+            currentQuestion = 1;
+            score = 0;
+            progressBar.style.width = '0%';
+            
+            // Сбрасываем все выделения
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('correct', 'incorrect');
+            });
+            
+            document.querySelectorAll('.quiz-question').forEach(q => {
+                q.removeAttribute('data-answered');
+            });
+            
+            document.querySelector('.quiz-navigation').style.display = 'flex';
+            document.querySelector('.quiz-result').style.display = 'none';
+            
+            showQuestion(currentQuestion);
+        });
+
+        // Плавная прокрутка для меню
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
