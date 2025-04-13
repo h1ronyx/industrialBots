@@ -755,6 +755,46 @@
             font-family: Arial, sans-serif;
         }
         header {
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+        .header-content {
+            display: flex;
+            flex-direction: column; /* Элементы располагаются вертикально */
+            align-items: center; /* Выравнивание по центру */
+            justify-content: center; /* Центрирование по вертикали */
+            height: 100vh; /* Занимает всю высоту экрана */
+        }
+        .robot-icon {
+            font-size: 48px; /* Размер иконки */
+            margin-bottom: 20px; /* Расстояние между иконкой и текстом */
+        }
+        h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+        .tagline {
+            font-size: 16px;
+            color: #666;
+            margin: 5px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="robot-icon">
+                <i class="fas fa-robot"></i>
+            </div>
+            <h1>Информационный портал о робототехнике</h1>
+            <p class="tagline">Изучайте мир роботов: от истории до современных технологий</p>
+        </div>
+    </header>
+</body>
+</html>
+        }
+        header {
             display: grid;
             place-items: center; /* Центрирование всех элементов */
             background-color: #f4f4f4;
