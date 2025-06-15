@@ -812,66 +812,141 @@
        style="margin-left: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
 </div>
 
-  <div class="timeline-row">
-            <div class="timeline-item">
-                <div class="timeline-year">1921</div>
-                <div class="timeline-title">Термин "робот"</div>
-                <p>Чешский писатель Карел Чапек впервые использовал слово "робот" в своей пьесе "R.U.R."</p>
-            </div>
-            <div class="timeline-item">
-                <img src="https://imgbb.io/images/fwAjh.jpg" alt="1921">
-            </div>
-        </div>
+  
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
 
-        <!-- 1961 -->
-        <div class="timeline-row">
-            <div class="timeline-item">
-                <img src="https://imgbb.io/images/fwAq9.jpg" alt="1961">
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-year">1961</div>
-                <div class="timeline-title">Первый промышленный робот</div>
-                <p>Unimate начинает работать на General Motors, выполняя задачи горячей штамповки и сварки.</p>
-            </div>
-        </div>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f9ff;
+      padding: 40px;
+    }
+    .timeline {
+      max-width: 1000px;
+      margin: auto;
+    }
+    .timeline-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 40px 0;
+      position: relative;
+    }
+    .timeline-row::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 4px;
+      background-color: #3498db;
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+    .timeline-item {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 45%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      z-index: 1;
+    }
+    .timeline-item img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .timeline-year {
+      font-weight: bold;
+      font-size: 18px;
+      color: #3498db;
+      margin-bottom: 8px;
+    }
+    .timeline-title {
+      font-weight: bold;
+      font-size: 20px;
+      color: #2c3e50;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
 
-        <!-- 1997 -->
-        <div class="timeline-row">
-            <div class="timeline-item">
-                <div class="timeline-year">1997</div>
-                <div class="timeline-title">Первый робот на Марсе</div>
-                <p>Mars Pathfinder и его ровер Sojourner приземляются на Красной планете.</p>
-            </div>
-            <div class="timeline-item">
-                <img src="https://imgbb.io/images/fwZ3d.jpg" alt="1997">
-            </div>
-        </div>
 
-        <!-- 2000 -->
-        <div class="timeline-row">
-            <div class="timeline-item">
-                <img src="https://imgbb.io/images/fwAYe.jpg" alt="2000">
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-year">2000</div>
-                <div class="timeline-title">Робот ASIMO от Honda</div>
-                <p>Один из самых продвинутых человекоподобных роботов, способный ходить, бегать и подниматься по лестнице.</p>
-            </div>
-        </div>
+  <div class="timeline">
 
-        <!-- 2023–2025 -->
-        <div class="timeline-row">
-            <div class="timeline-item">
-                <div class="timeline-year">2023–2025</div>
-                <div class="timeline-title">Роботы с искусственным интеллектом</div>
-                <p>Современные роботы обучаются на основе нейросетей, приобретают способность к более сложным взаимодействиям с людьми.</p>
-            </div>
-            <div class="timeline-item">
-                <img src="https://imgbb.io/images/fwAag.jpg" alt="2023">
-            </div>
-        </div>
-
+    <div class="timeline-row">
+      <div class="timeline-item">
+        <div class="timeline-year">1495</div>
+        <div class="timeline-title">Механический рыцарь Леонардо да Винчи</div>
+        <p>Один из первых известных проектов человекоподобного робота, способного двигать руками и головой.</p>
+      </div>
+      <div class="timeline-item">
+        <img src="https://imgbb.io/images/fw0D7.jpg" alt="1495">
+      </div>
     </div>
+
+    <div class="timeline-row">
+      <div class="timeline-item">
+        <img src="https://imgbb.io/images/fwAjh.jpg" alt="1921">
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1921</div>
+        <div class="timeline-title">Термин "робот"</div>
+        <p>Карел Чапек впервые использовал слово "робот" в пьесе "R.U.R."</p>
+      </div>
+    </div>
+
+    <div class="timeline-row">
+      <div class="timeline-item">
+        <div class="timeline-year">1961</div>
+        <div class="timeline-title">Первый промышленный робот</div>
+        <p>Unimate начинает работу на заводе General Motors.</p>
+      </div>
+      <div class="timeline-item">
+        <img src="https://imgbb.io/images/fwAq9.jpg" alt="1961">
+      </div>
+    </div>
+
+    <div class="timeline-row">
+      <div class="timeline-item">
+        <img src="https://imgbb.io/images/fwZ3d.jpg" alt="1997">
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">1997</div>
+        <div class="timeline-title">Первый робот на Марсе</div>
+        <p>Марсоход Sojourner успешно работает на Красной планете.</p>
+      </div>
+    </div>
+
+    <div class="timeline-row">
+      <div class="timeline-item">
+        <div class="timeline-year">2000</div>
+        <div class="timeline-title">Робот ASIMO от Honda</div>
+        <p>Робот умеет ходить, бегать и подниматься по лестнице.</p>
+      </div>
+      <div class="timeline-item">
+        <img src="https://imgbb.io/images/fwAYe.jpg" alt="2000">
+      </div>
+    </div>
+
+    <div class="timeline-row">
+      <div class="timeline-item">
+        <img src="https://imgbb.io/images/fwAag.jpg" alt="2023">
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">2023–2025</div>
+        <div class="timeline-title">Роботы с ИИ</div>
+        <p>Роботы на основе нейросетей взаимодействуют с людьми.</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
+
 
         </section>
 
