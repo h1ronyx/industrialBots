@@ -801,6 +801,7 @@
 
             <div class="timeline">
 
+<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -814,15 +815,9 @@
     .timeline {
       max-width: 1000px;
       margin: auto;
-    }
-    .timeline-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 40px 0;
       position: relative;
     }
-    .timeline-row::before {
+    .timeline::before {
       content: '';
       position: absolute;
       top: 0;
@@ -833,13 +828,20 @@
       transform: translateX(-50%);
       z-index: 0;
     }
+    .timeline-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 40px 0;
+      position: relative;
+      z-index: 1;
+    }
     .timeline-item {
       background: white;
       padding: 20px;
       border-radius: 8px;
       width: 45%;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      z-index: 1;
     }
     .timeline-item img {
       max-width: 100%;
@@ -932,6 +934,9 @@
     </div>
 
   </div>
+</body>
+</html>
+
  
         </section>
 
